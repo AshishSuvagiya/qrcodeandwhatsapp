@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Shareed extends StatefulWidget {
-  const Shareed({Key? key}) : super(key: key);
+class Shared extends StatefulWidget {
+  const Shared({Key? key}) : super(key: key);
 
   @override
-  _ShareedState createState() => _ShareedState();
+  _SharedState createState() => _SharedState();
 }
 
-class _ShareedState extends State<Shareed> {
-  final searchcontroller = TextEditingController();
+class _SharedState extends State<Shared> {
+  final searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +19,7 @@ class _ShareedState extends State<Shareed> {
         children: [
           TextFormField(
             onChanged: (value) {},
-            controller: searchcontroller,
+            controller: searchController,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(40),
@@ -33,13 +34,28 @@ class _ShareedState extends State<Shareed> {
               hintText: "type message",
             ),
           ),
+          // ElevatedButton(
+          //   onPressed: () async {
+          //     try {
+          //       await SocialShare.checkInstalledAppsForShare().then((data) {
+          //         SocialShare.shareTelegram("hadsud");
+          //       });
+          //     } catch (e) {
+          //       print("{eororo$e}");
+          //     }
+          //   },
+          //   child: Text("Share"),
+          // ),
           ElevatedButton(
             onPressed: () async {
-              var whatsappUrl = "https://wa.me/?text=${searchcontroller.text}";
+              var whatsappUrl =
+                  "https://play.google.com/store/apps/details?id=org.telegram.messenger";
+
               await canLaunch(whatsappUrl) != null
                   ? launch(whatsappUrl)
                   : print(
-                      "open WhatsApp app link or do a snackbar with notification that there is no WhatsApp installed");
+                      " Not installed",
+                    );
             },
             child: const Text("Share"),
           ),

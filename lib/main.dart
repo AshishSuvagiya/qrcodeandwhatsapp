@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:yeay/screen.dart';
-import 'package:yeay/share.dart';
+import 'Qr_code_scanner.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,18 +9,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        splashColor: Colors.green,
-        hoverColor: Colors.green,
+        splashColor: Colors.black,
+        hoverColor: Colors.black,
         primarySwatch: Colors.green,
       ),
       themeMode: ThemeMode.system,
-      home: Shareed(),
+      home: const QRViewExample(),
     );
   }
 }
